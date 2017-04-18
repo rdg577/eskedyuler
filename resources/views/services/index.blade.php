@@ -25,29 +25,15 @@
                                 {{-- New service entry form --}}
                                 {!! Form::open(array('url' => '/services', 'class' => 'form-horizontal', 'role' => 'form')) !!}
 
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        {!! Form::label('name', 'Name', array('class' => 'col-md-4 control-label')) !!}
+                                    <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                                        {!! Form::label('title', 'Title', array('class' => 'col-md-4 control-label')) !!}
 
                                         <div class="col-md-6">
-                                            {!! Form::text('name', old('name'), array('class' => 'form-control')) !!}
+                                            {!! Form::text('title', old('title'), array('class' => 'form-control')) !!}
 
-                                            @if ($errors->has('name'))
+                                            @if ($errors->has('title'))
                                                 <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
-                                        {!! Form::label('amount', '', array('class' => 'col-md-4 control-label')) !!}
-
-                                        <div class="col-md-6">
-                                            {!! Form::number('amount', old('amount'), array('class' => 'form-control')) !!}
-
-                                            @if ($errors->has('amount'))
-                                                <span class="help-block">
-                                            <strong>{{ $errors->first('amount') }}</strong>
+                                            <strong>{{ $errors->first('title') }}</strong>
                                         </span>
                                             @endif
                                         </div>
@@ -67,16 +53,45 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group{{ $errors->has('minutes') ? ' has-error' : '' }}">
+                                        {!! Form::label('minutes', 'Total Minutes', array('class' => 'col-md-4 control-label')) !!}
+
+                                        <div class="col-md-6">
+                                            {!! Form::number('minutes', old('minutes'), array('class' => 'form-control', 'step' => 0.1)) !!}
+
+                                            @if ($errors->has('minutes'))
+                                                <span class="help-block">
+                                            <strong>{{ $errors->first('minutes') }}</strong>
+                                        </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+                                        {!! Form::label('price', '', array('class' => 'col-md-4 control-label')) !!}
+
+                                        <div class="col-md-6">
+                                            {!! Form::number('price', old('price'), array('class' => 'form-control', 'step' => 0.1)) !!}
+
+                                            @if ($errors->has('price'))
+                                                <span class="help-block">
+                                            <strong>{{ $errors->first('price') }}</strong>
+                                        </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
                                     <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                                         {!! Form::label('type', '', array('class' => 'col-md-4 control-label')) !!}
 
                                         <div class="col-md-6">
-                                            {!! Form::select(
+                                            {!! Form::text('type', old('type'), array('class' => 'form-control')) !!}
+                                            {{--{!! Form::select(
                                                 'type',
                                                 array('Express' => 'Express', 'Ordinary' => 'Ordinary'),
                                                 null,
                                                 array('class' => 'form-control')
-                                            ) !!}
+                                            ) !!}--}}
 
                                             @if ($errors->has('type'))
                                                 <span class="help-block">
@@ -88,9 +103,10 @@
 
                                     <div class="form-group">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <button type="submit" class="btn btn-primary">
-                                                {{--<i class="fa fa-btn fa-user"></i>--}}Add new service
+                                            <button type="submit" class="btn btn-success">
+                                                {{--<i class="fa fa-btn fa-user"></i>--}}Submit
                                             </button>
+                                            <button type="reset" class="btn btn-default">Clear fields</button>
                                         </div>
                                     </div>
 
@@ -104,7 +120,7 @@
                             <div class="panel-heading">List of services</div>
                             <div class="panel-body">
 
-                                <div class="row">
+                                {{--<div class="row">--}}
 
                                     @forelse($services as $service)
                                         <div class="col col-md-4">
@@ -113,9 +129,9 @@
                                                     {{ $service->name }} :: <small><a href="{{ url('/service/' . $service->id . '/edit') }}">edit</a></small>
                                                 </div>
                                                 <div class="panel-body">
-                                                    <div>Description: {{ $service->description }}</div>
-                                                    <div>Amount: {{ number_format($service->amount, 2) }}</div>
-                                                    <div>Type: {{ $service->type }}</div>
+                                                    <div>Description: <b>{{ $service->description }}</b></div>
+                                                    <div>Amount: <b>Php {{ number_format($service->price, 2) }}</b></div>
+                                                    <div>Type: <b>{{ $service->type }}</b></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -123,7 +139,7 @@
                                         <div class="panel-body">No records...</div>
                                     @endforelse
 
-                                </div>
+                                {{--</div>--}}
 
                                 {!! $services->links() !!}
 

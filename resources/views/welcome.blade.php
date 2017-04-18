@@ -8,7 +8,8 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                    Your Application's Landing Page.
+                    <p>This is the online booking site of our spa.</p>
+                    <a href="{{ url('/book') }}" class="btn btn-success">Book now...</a>
                 </div>
             </div>
         </div>

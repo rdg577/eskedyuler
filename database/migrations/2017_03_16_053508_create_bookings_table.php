@@ -20,8 +20,7 @@ class CreateBookingsTable extends Migration
             $table->string("email")->nullable();
             $table->string("mobile");
             $table->string("note");
-            $table->date("event_date");
-            $table->time("event_time");
+            $table->dateTime("event_date_time");
             $table->integer("status_id")->unsigned();
             // $table->integer("branch_id")->unsigned();
             $table->timestamps();

@@ -11,9 +11,9 @@
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +35,16 @@
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/', function () {
+    Route::get('/book', function () {
         return view('booking');
     });
+
+    Route::get('/listServices', 'ToolboxController@listServices');
+    Route::get('/listStaffs', 'ToolboxController@listStaffs');
+
+    Route::get('/book_now', 'BookingController@saveBooking');
+    Route::get('/book_confirmation', 'BookingController@confirmBooking');
+    Route::get('/book_reschedule', 'BookingController@rescheduleBooking');
 
     Route::get('/home', 'HomeController@index');
     Route::get('/register-user', 'HomeController@registerUser');

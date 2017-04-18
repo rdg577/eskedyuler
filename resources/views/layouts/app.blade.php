@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Skedyuler</title>
+    <title>Solaz Spa</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -39,7 +39,7 @@
      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="{{ \Illuminate\Support\Facades\URL::asset('kendoui/js/kendo.web.min.js') }}"></script>
-
+    <script src="{{ \Illuminate\Support\Facades\URL::asset('js/bootbox.min.js') }}"></script>
 
 
 </head>
@@ -58,7 +58,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Skedyuler
+                    Solaz Spa
                 </a>
             </div>
 
@@ -66,6 +66,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/book') }}">Book</a></li>
                         {{-- for System and Branch Admin menu only --}}
                         @if(Auth::check() && (Auth::user()->isSystemAdmin() || Auth::user()->isBranchAdmin()))
                             <li class="dropdown">

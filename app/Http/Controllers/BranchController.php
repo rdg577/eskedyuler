@@ -29,7 +29,7 @@ class BranchController extends Controller
     {
         $branches = Branch::where('name', '<>', 'None')->paginate(10);
 
-        return view('sys_admin.branches.index', compact('branches'));
+        return view('branches.index', compact('branches'));
     }
 
     /**
@@ -39,7 +39,7 @@ class BranchController extends Controller
      */
     public function create()
     {
-        return view('sys_admin.branches.create');
+        return view('branches.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class BranchController extends Controller
 
         $request->session()->flash('alert-success', 'Adding new branch was successful!');
 
-        return view('home');
+        return redirect('/list-branch');
     }
 
     /**
@@ -77,7 +77,7 @@ class BranchController extends Controller
     public function edit($id)
     {
         $branch = Branch::find($id);
-        return view('sys_admin.branches.edit', compact('branch'));
+        return view('branches.edit', compact('branch'));
     }
 
     /**

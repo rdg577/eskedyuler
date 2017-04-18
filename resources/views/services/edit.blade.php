@@ -19,29 +19,15 @@
                         {{-- Edit service entry form --}}
                         {!! Form::model($service, array('url' => '/services/' . $service->id, 'method' => 'PATCH', 'class' => 'form-horizontal', 'role' => 'form')) !!}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            {!! Form::label('name', 'Name', array('class' => 'col-md-4 control-label')) !!}
+                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                            {!! Form::label('title', 'Title', array('class' => 'col-md-4 control-label')) !!}
 
                             <div class="col-md-6">
-                                {!! Form::text('name', old('name'), array('class' => 'form-control')) !!}
+                                {!! Form::text('title', old('title'), array('class' => 'form-control')) !!}
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('title'))
                                     <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
-                            {!! Form::label('amount', '', array('class' => 'col-md-4 control-label')) !!}
-
-                            <div class="col-md-6">
-                                {!! Form::number('amount', old('amount'), array('class' => 'form-control')) !!}
-
-                                @if ($errors->has('amount'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('amount') }}</strong>
+                                            <strong>{{ $errors->first('title') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -61,16 +47,46 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('minutes') ? ' has-error' : '' }}">
+                            {!! Form::label('minutes', 'Total Minutes', array('class' => 'col-md-4 control-label')) !!}
+
+                            <div class="col-md-6">
+                                {!! Form::number('minutes', old('minutes'), array('class' => 'form-control', 'step' => 0.1)) !!}
+
+                                @if ($errors->has('minutes'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('minutes') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+                            {!! Form::label('price', '', array('class' => 'col-md-4 control-label')) !!}
+
+                            <div class="col-md-6">
+                                {!! Form::number('price', old('price'), array('class' => 'form-control', 'step' => 0.1)) !!}
+
+                                @if ($errors->has('price'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('price') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                             {!! Form::label('type', '', array('class' => 'col-md-4 control-label')) !!}
 
                             <div class="col-md-6">
-                                {!! Form::select(
+                                {!! Form::text('type', old('type'), array('class' => 'form-control')) !!}
+
+                                {{--{!! Form::select(
                                 'type',
                                 array('Express' => 'Express', 'Ordinary' => 'Ordinary'),
                                 null,
                                 array('class' => 'form-control')
-                                ) !!}
+                                ) !!}--}}
 
                                 @if ($errors->has('type'))
                                     <span class="help-block">
@@ -83,7 +99,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{--<i class="fa fa-btn fa-user">--}}</i>Update service
+                                    Update service
                                 </button>
                             </div>
                         </div>

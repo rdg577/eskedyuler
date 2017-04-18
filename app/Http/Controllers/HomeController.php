@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use App\Branch;
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
@@ -29,7 +30,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // status - 1 (Tentative), 2 (Confirmed)
+        //$bookings = Booking::where('status_id', 1)->orderBy('event_date_time')->orderBy('status_id')->paginate(20);
+        $bookings = Booking::orderBy('event_date_time', "desc")->orderBy('status_id')->paginate(20);
+        return view('home', compact('bookings'));
     }
 
     public function registerUser()
