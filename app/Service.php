@@ -11,6 +11,7 @@ class Service extends Model
         'description',
         'minutes',
         'price',
-        'type'
+        'type',
+        'isActive'
     ];
 }

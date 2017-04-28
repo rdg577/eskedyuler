@@ -24,7 +24,7 @@ class ServiceRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|unique:services',
+            'title' => 'required',
             'price' => 'required|numeric',
             'minutes' => 'required|numeric',
             'type' => 'required'

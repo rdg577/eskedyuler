@@ -70,6 +70,8 @@
 
                     <h4 style="background-color: #f3ae04; padding: 5px;">Client Detail</h4>
 
+
+
                     <div class="form-group">
                         <label for="firstname" class="control-label">Firstname: <span class="required">&nbsp;!required&nbsp;</span></label>
                         <input type="text" name="firstname" id="firstname" required class="form-control">

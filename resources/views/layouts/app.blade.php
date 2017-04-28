@@ -7,23 +7,30 @@
 
     <title>Solaz Spa</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Kendo styles -->
-    <link href="{{ \Illuminate\Support\Facades\URL::asset('kendoui/styles/kendo.common.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ \Illuminate\Support\Facades\URL::asset('kendoui/styles/kendo.default.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <link href="{{ URL::asset('bootstrap-3.3.7/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('bootstrap-3.3.7/css/bootstrap-theme.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('submenu/bootstrap-submenu.min.css') }}" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
+             <!-- Latest compiled and minified CSS -->
+             {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                 integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--}}
+             <!-- Optional theme -->
+             {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+                 integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--}}
+
+             <!-- Kendo styles -->
+             <link href="{{ \Illuminate\Support\Facades\URL::asset('kendoui/styles/kendo.common.min.css') }}" rel="stylesheet" type="text/css" />
+             <link href="{{ \Illuminate\Support\Facades\URL::asset('kendoui/styles/kendo.default.min.css') }}" rel="stylesheet" type="text/css" />
+
+             <!-- Fonts -->
+             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+             <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+
+             <style>
+                 body {
+                     font-family: 'Lato';
+                 }
 
         .fa-btn {
             margin-right: 6px;
@@ -35,9 +42,10 @@
 
     <script src="{{ \Illuminate\Support\Facades\URL::asset('kendoui/js/jquery.min.js') }}"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--}}
 
+    <script src="{{ URL::asset('bootstrap-3.3.7/js/bootstrap.min.js') }}"></script>
     <script src="{{ \Illuminate\Support\Facades\URL::asset('kendoui/js/kendo.web.min.js') }}"></script>
     <script src="{{ \Illuminate\Support\Facades\URL::asset('js/bootbox.min.js') }}"></script>
 
@@ -83,6 +91,7 @@
 
                         {{-- for System Admin menu only --}}
                         @if(Auth::check() && Auth::user()->isSystemAdmin())
+                            {{--
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Branch <span class="caret"></span>
@@ -92,6 +101,7 @@
                                     <li><a href="{{ url('/list-branch') }}">List</a> </li>
                                 </ul>
                             </li>
+                            --}}
                             <li><a href="{{ url('/services') }}">Services</a></li>
                         @endif
                         {{-- END: for System Admin menu only --}}

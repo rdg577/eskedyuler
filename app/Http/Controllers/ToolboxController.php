@@ -13,7 +13,7 @@ class ToolboxController extends Controller
 {
     public function listServices() {
         $list = Service::select('id', DB::raw('CONCAT(title, " [Php ", price, "] [", minutes, " min]") AS titulo'))
-            ->get();
+            ->where('isActive', 1)->get();
         return $list;
     }
 

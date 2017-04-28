@@ -23,7 +23,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::orderBy('title')->paginate(10);
+        $services = Service::orderBy('title')->orderBy('isActive')->paginate(20);
 
         return view('services.index', compact('services'));
     }

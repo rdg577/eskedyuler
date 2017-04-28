@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->integer("minutes");
             $table->double("price");
             $table->string("type",30);
+            $table->boolean("isActive");
             $table->timestamps();
         });
     }

@@ -32,8 +32,10 @@ class HomeController extends Controller
     {
         // status - 1 (Tentative), 2 (Confirmed)
         //$bookings = Booking::where('status_id', 1)->orderBy('event_date_time')->orderBy('status_id')->paginate(20);
-        $bookings = Booking::orderBy('event_date_time', "desc")->orderBy('status_id')->paginate(20);
-        return view('home', compact('bookings'));
+        $tentative_bookings = Booking::where('status_id', 1)->orderBy('event_date_time', "desc")->paginate(20);
+        $confirmed_bookings = Booking::where('status_id', 2)->orderBy('event_date_time', "desc")->paginate(20);
+        $no_show_bookings = Booking::where('status_id', 3)->orderBy('event_date_time', "desc")->paginate(20);
+        return view('home', compact('confirmed_bookings', 'tentative_bookings', 'no_show_bookings'));
     }
 
     public function registerUser()

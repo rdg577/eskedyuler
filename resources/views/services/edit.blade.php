@@ -96,6 +96,26 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('isActive') ? ' has-error' : '' }}">
+                            {!! Form::label('isActive', 'Is Active', array('class' => 'col-md-4 control-label')) !!}
+
+                            <div class="col-md-6">
+                                {{--{!! Form::text('type', old('type'), array('class' => 'form-control')) !!}--}}
+                                {!! Form::select(
+                                    'isActive',
+                                    array('0' => 'No', '1' => 'Yes'),
+                                    old('isActive'),
+                                    array('class' => 'form-control')
+                                ) !!}
+
+                                @if ($errors->has('type'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('type') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
